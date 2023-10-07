@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweet-er</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: url("C:/Users/sneha/Desktop/elixir/birds1.jpg") no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Open Sans', sans-serif;
+            color: black;
+            transition: background-image 1s ease-in-out;
+        }
+        .container {
+            text-align: center;
+            padding: 100px;
+        }
+        h1 {
+            font-size: 48px;
+        }
+        #upload-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #upload-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tweet-er</h1>
+        <p>Upload a recording of a bird sound to identify its species!</p>
+        <input type="file" id="audio-upload" accept="audio/*" style="display: none;">
+        <label for="audio-upload" id="upload-button-label">
+            <button id="upload-button">Upload Bird Sound</button>
+        </label>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const birdImages = ["C:/Users/sneha/Desktop/elixir/birds1.jpg","C:/Users/sneha/Desktop/elixir/birds2.jpg", "C:/Users/sneha/Desktop/elixir/birds3.jpg", "C:/Users/sneha/Desktop/elixir/birds4.jpg"];
+        let currentImageIndex = 0;
+
+        function changeBackgroundImage() {
+            document.body.style.backgroundImage = `url(${birdImages[currentImageIndex]})`;
+            currentImageIndex = (currentImageIndex + 1) % birdImages.length;
+        }
+
+        setInterval(changeBackgroundImage, 5000);
+    </script>
+</body>
+</html>
+
